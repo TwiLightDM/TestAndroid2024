@@ -1,6 +1,6 @@
 package task4
 
-fun main(){
+suspend fun main(){
     val newsPoster = NewsPoster()
 
     newsPoster.addSubscriber(Man("Иван"))

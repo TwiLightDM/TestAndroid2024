@@ -1,7 +1,7 @@
 package task4
 
 import kotlin.random.Random
-
+import kotlinx.coroutines.*
 class NewsPoster {
     var degrees = 0
     private val subscribers = mutableListOf<Subscriber>()
@@ -14,12 +14,13 @@ class NewsPoster {
         subscribers.remove(subscriber)
     }
 
-    fun updateState() {
-        degrees = Random.nextInt(-30, 31)
-        subscribers.forEach {
-            it.getState(degrees)
+    suspend fun updateState() {
+        while (true){
+            degrees = Random.nextInt(-30, 31)
+            subscribers.forEach {
+                it.getState(degrees)
+            }
+            delay(5000)
         }
-        readln()
-        return updateState()
     }
 }
