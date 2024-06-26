@@ -2,6 +2,7 @@ package task4
 
 import kotlin.random.Random
 import kotlinx.coroutines.*
+
 class NewsPoster {
     var degrees = 0
     private val subscribers = mutableListOf<Subscriber>()
